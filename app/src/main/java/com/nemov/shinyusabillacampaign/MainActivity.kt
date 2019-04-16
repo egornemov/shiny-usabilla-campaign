@@ -1,7 +1,9 @@
 package com.nemov.shinyusabillacampaign
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +14,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        sendEvent(this, supportFragmentManager)
+
+        cl_root.postDelayed(
+            {
+                Toast.makeText(applicationContext, "Send Usabilla campaign event", Toast.LENGTH_SHORT).show()
+                sendEvent(applicationContext, supportFragmentManager)
+            },
+            1000)
     }
 }

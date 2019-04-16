@@ -1,13 +1,11 @@
 package com.nemov.shinyusabillacampaign
 
 import android.app.Application
-import android.util.Log
+import android.widget.Toast
 import com.usabilla.sdk.ubform.Usabilla
 import com.usabilla.sdk.ubform.UsabillaReadyCallback
 
 class ApplicationExt: Application(), UsabillaReadyCallback {
-
-    val TAG = ApplicationExt::class.java.simpleName
 
     override fun onCreate() {
         super.onCreate()
@@ -22,6 +20,6 @@ class ApplicationExt: Application(), UsabillaReadyCallback {
     }
 
     override fun onUsabillaInitialized() {
-        Log.d(TAG, "Usabilla is initialized")
+        Toast.makeText(applicationContext, "Usabilla is initialized", Toast.LENGTH_SHORT).show()
     }
 }
